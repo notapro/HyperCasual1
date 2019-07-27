@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6289755811526148932}
   - component: {fileID: 6289755811526148933}
   - component: {fileID: 6289755811526148922}
-  - component: {fileID: 6289755811526148934}
   - component: {fileID: 6289755811526148923}
   m_Layer: 0
   m_Name: Circle
@@ -103,47 +102,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &6289755811526148934
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6289755811526148935}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.38363174, y: 0.41018915}
-  - {x: -0.40537214, y: 0.40931234}
-  - {x: -0.5081169, y: 0.25599566}
-  - {x: -0.54911727, y: 0.116122626}
-  - {x: -0.5628224, y: 0.024778461}
-  - {x: -0.53755945, y: -0.15870419}
-  - {x: -0.46565524, y: -0.29442427}
-  - {x: -0.43016958, y: -0.3521391}
-  - {x: -0.36474496, y: -0.4063942}
-  - {x: -0.3147118, y: -0.47304612}
-  - {x: -0.22671838, y: -0.5083046}
-  - {x: -0.017552435, y: -0.55261624}
-  - {x: 0.096211694, y: -0.5599961}
-  - {x: 0.20427223, y: -0.5225717}
-  - {x: 0.35246107, y: -0.4255931}
-  - {x: 0.40083262, y: -0.39500713}
-  - {x: 0.5198239, y: -0.22939406}
-  - {x: 0.56022346, y: 0.0043091774}
-  - {x: 0.5369699, y: 0.11984234}
-  - {x: 0.49747142, y: 0.24238424}
-  - {x: 0.456551, y: 0.32186022}
-  - {x: 0.3574637, y: 0.43419465}
-  - {x: 0.13371103, y: 0.54358035}
-  - {x: -0.054882396, y: 0.5632688}
-  - {x: -0.23165245, y: 0.51273644}
 --- !u!68 &6289755811526148923
 EdgeCollider2D:
   m_ObjectHideFlags: 0

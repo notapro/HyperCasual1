@@ -13,7 +13,7 @@ public class LevelRotation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update ()
+    void FixedUpdate ()
     {
         transform.Rotate (0, 0, torque);
     }
