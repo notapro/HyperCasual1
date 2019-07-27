@@ -6,6 +6,8 @@ public class GameScreenUIController : MonoBehaviour
 {
     public static GameScreenUIController instance;
 
+    public GameObject pausePopup;
+
     private float origTimeDelta = 0;
     private bool onPause = false;
 
@@ -21,11 +23,22 @@ public class GameScreenUIController : MonoBehaviour
 
     public void OnPause ()
     {
+        TogglePause ();
+        pausePopup.SetActive (true);
+    }
+
+    public void TogglePause ()
+    {
         if (!onPause) {
             Time.timeScale = 0.0f;
         } else {
             Time.timeScale = origTimeDelta;
         }
         onPause = !onPause;
+    }
+
+    public void OnResume ()
+    {
+        TogglePause ();
     }
 }
