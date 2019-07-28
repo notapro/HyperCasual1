@@ -7,6 +7,8 @@ public class GameScreenUIController : MonoBehaviour
     public static GameScreenUIController instance;
 
     public GameObject pausePopup;
+    public GameObject puzzleCompletePopup;
+    public GameObject puzzleContainer;
 
     private float origTimeDelta = 0;
     private bool onPause = false;
@@ -14,31 +16,60 @@ public class GameScreenUIController : MonoBehaviour
     private void Awake ()
     {
         instance = this;
-    }
-    // Start is called before the first frame update
-    void Start ()
-    {
         origTimeDelta = Time.timeScale;
+    }
+
+    private void OnEnable ()
+    {
+        TogglePuzzle (true);
     }
 
     public void OnPause ()
     {
-        TogglePause ();
+        TogglePause (true);
         pausePopup.SetActive (true);
     }
 
-    public void TogglePause ()
+    public void PuzzleComplete ()
     {
-        if (!onPause) {
+        TogglePause (true);
+        puzzleCompletePopup.SetActive (true);
+    }
+
+    public void TogglePause (bool pause)
+    {
+        if (pause) {
             Time.timeScale = 0.0f;
         } else {
             Time.timeScale = origTimeDelta;
         }
-        onPause = !onPause;
+        onPause = pause;
     }
 
     public void OnResume ()
     {
-        TogglePause ();
+        TogglePause (false);
+    }
+
+    public void TogglePuzzle (bool show)
+    {
+        puzzleContainer.SetActive (show);
+    }
+
+    public void ExitPuzzle ()
+    {
+        TogglePuzzle (false);
+        ShowHomeScreen ();
+        Hide ();
+    }
+
+    public void ShowHomeScreen ()
+    {
+        ScreenController.instance.ShowHomeScreen ();
+    }
+
+    public void Hide ()
+    {
+        gameObject.SetActive (false);
     }
 }

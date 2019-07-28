@@ -6,13 +6,6 @@ public class LevelRotation : MonoBehaviour
 {
     private float torque = 1;
 
-    // Start is called before the first frame update
-    void Start ()
-    {
-
-    }
-
-    // Update is called once per frame
     void FixedUpdate ()
     {
         transform.Rotate (0, 0, torque);

@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PausePopup : MonoBehaviour
+public class PuzzleComplete : MonoBehaviour
 {
-    public void Resume ()
+    public void Next ()
     {
-        GameScreenUIController.instance.TogglePause (false);
-        Hide ();
+
     }
 
     public void Exit ()
     {
+        Hide ();
         GameScreenUIController.instance.ExitPuzzle ();
     }
 
