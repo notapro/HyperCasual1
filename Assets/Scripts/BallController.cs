@@ -17,7 +17,7 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate ()
     {
-        if (Input.GetKeyDown (KeyCode.Space)) {
+        if (Input.GetKeyDown (KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began)) {
             rb.AddForce (new Vector2 (0.0f, force));
         }
     }
