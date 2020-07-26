@@ -6,7 +6,7 @@ public class PausePopup : MonoBehaviour
 {
     public void Resume ()
     {
-        GameScreenUIController.instance.TogglePause (false);
+        GameScreenUIController.instance.OnResume();
         Hide ();
     }
 

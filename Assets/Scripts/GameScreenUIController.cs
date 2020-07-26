@@ -1,32 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameScreenUIController : MonoBehaviour
 {
     public static GameScreenUIController instance;
 
-    public GameObject pausePopup;
-    public GameObject puzzleCompletePopup;
-    public GameObject puzzleContainer;
+    [SerializeField] private GameObject pausePopup;
+    [SerializeField] private GameObject puzzleCompletePopup;
+    [SerializeField] private GameObject puzzleContainer;
+    [SerializeField] private GameObject timer;
 
-    private float origTimeDelta = 0;
-    private bool onPause = false;
+    [SerializeField] private int puzzleDuration;
+    
+    private float _origTimeDelta = 0;
+    private bool _onPause = false;
 
     private void Awake ()
     {
         instance = this;
-        origTimeDelta = Time.timeScale;
+        _origTimeDelta = Time.timeScale;
     }
 
     private void OnEnable ()
     {
         TogglePuzzle (true);
+        timer.GetComponent<Timer>().Init(puzzleDuration, PuzzleComplete);
     }
 
     public void OnPause ()
     {
         TogglePause (true);
+        timer.GetComponent<Timer>().PauseTimer();
         pausePopup.SetActive (true);
     }
 
@@ -41,19 +47,21 @@ public class GameScreenUIController : MonoBehaviour
         if (pause) {
             Time.timeScale = 0.0f;
         } else {
-            Time.timeScale = origTimeDelta;
+            Time.timeScale = _origTimeDelta;
         }
-        onPause = pause;
+        _onPause = pause;
     }
 
     public void OnResume ()
     {
         TogglePause (false);
+        timer.GetComponent<Timer>().ResumeTimer();
     }
 
     public void TogglePuzzle (bool show)
     {
         puzzleContainer.SetActive (show);
+        timer.SetActive(true);
     }
 
     public void ExitPuzzle ()
